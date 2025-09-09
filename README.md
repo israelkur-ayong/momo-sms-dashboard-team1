@@ -9,14 +9,25 @@ This project demonstrates skills in:
 - Frontend development (HTML, CSS, JavaScript)
 - Agile project management
 
----
-
 ## 👥 Team Members
 - Israel Kur Abraham Ayong
 - Armel Leger Kira Kayisire
 - Kenny Crepin Rukoro
+- Dorian Bitega Sheja
 
----
+## System Architecture
+Screenshot in (docs/systemarchitect.png).
 
-## 📂 Project Structure (Planned)
+## Scrum Board / Project Management
+screenshot in (docs/scrumboard.png).
+
+## Data Flow & Pipeline
+Raw XML→ETL→DB→JSON/API→Dashboard.
+
+## Setup Instructions
+Backend: how to run FastAPI (uvicorn main:app --reload)
+Frontend: npm install && npm start (if React)
+
+## Deliverables
+What the repo includes: ETL scripts, database, frontend, docs.
 
