@@ -1,0 +1,117 @@
+{
+  "Users": [
+    {
+      "userId": 1,
+      "firstName": "Kwame",
+      "lastName": "Mensah",
+      "email": "kwame.mensah@example.com",
+      "phoneNumber": "+233201234567",
+      "createdAt": "2025-09-01T08:00:00Z"
+    },
+    {
+      "userId": 2,
+      "firstName": "Akosua",
+      "lastName": "Boateng",
+      "email": "akosua.boateng@example.com",
+      "phoneNumber": "+233209876543",
+      "createdAt": "2025-09-02T09:10:00Z"
+    }
+  ],
+  "Transaction_Categories": [
+    {
+      "categoryId": 1,
+      "categoryName": "Merchant Payment",
+      "description": "Payment to registered merchant"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Airtime Purchase",
+      "description": "Buying mobile airtime credit"
+    }
+  ],
+  "Transactions": [
+    {
+      "transactionId": 101,
+      "amount": 250.0,
+      "currency": "GHS",
+      "status": "Completed",
+      "transactionDate": "2025-09-15T14:30:00Z",
+      "description": "Payment for goods",
+      "createdAt": "2025-09-15T14:30:00Z"
+    },
+    {
+      "transactionId": 102,
+      "amount": 12.5,
+      "currency": "GHS",
+      "status": "Completed",
+      "transactionDate": "2025-09-16T11:05:00Z",
+      "description": "Airtime top-up"
+    }
+  ],
+  "System_Logs": [
+    {
+      "logId": 5001,
+      "transactionId": 101,
+      "logDate": "2025-09-15T14:31:00Z",
+      "actionType": "INSERT",
+      "logDetails": "Transaction 101 inserted successfully"
+    },
+    {
+      "logId": 5002,
+      "transactionId": 102,
+      "logDate": "2025-09-16T11:06:00Z",
+      "actionType": "INSERT",
+      "logDetails": "Transaction 102 inserted successfully"
+    }
+  ],
+  "User_Transactions": [
+    {
+      "id": 9001,
+      "userId": 1,
+      "transactionId": 101,
+      "role": "Sender"
+    },
+    {
+      "id": 9002,
+      "userId": 2,
+      "transactionId": 101,
+      "role": "Receiver"
+    }
+  ],
+  "Complex_Transaction": {
+    "transactionId": 101,
+    "amount": 250.0,
+    "currency": "GHS",
+    "status": "Completed",
+    "transactionDate": "2025-09-15T14:30:00Z",
+    "description": "Payment for goods",
+    "users": [
+      {
+        "userId": 1,
+        "firstName": "Kwame",
+        "lastName": "Mensah",
+        "phoneNumber": "+233201234567",
+        "role": "Sender"
+      },
+      {
+        "userId": 2,
+        "firstName": "Akosua",
+        "lastName": "Boateng",
+        "phoneNumber": "+233209876543",
+        "role": "Receiver"
+      }
+    ],
+    "category": {
+      "categoryId": 1,
+      "categoryName": "Merchant Payment"
+    },
+    "systemLogs": [
+      {
+        "logId": 5001,
+        "logDate": "2025-09-15T14:31:00Z",
+        "actionType": "INSERT",
+        "logDetails": "Transaction 101 inserted successfully"
+      }
+    ]
+  }
+}
