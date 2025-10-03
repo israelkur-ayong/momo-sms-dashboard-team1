@@ -15,7 +15,7 @@ Use header:
 
 Authorization: Basic BASE64(username:password)
 
-Example (curl): -u admin:password123
+Example (curl): -u admin:admin123
 
 
 
