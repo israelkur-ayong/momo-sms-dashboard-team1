@@ -1,0 +1,42 @@
+# dsa/dsa_compare.py
+import json, time, random
+from pathlib import Path
+
+DATA = Path("data/transactions.json")
+if not DATA.exists():
+    raise SystemExit("Run parse_xml.py first to create data/transactions.json")
+
+txs = json.loads(DATA.read_text(encoding='utf-8'))
+
+# Build dict lookup by txn_external_id
+tx_dict = {t['txn_external_id']: t for t in txs}
+
+# choose 20 random ids (if fewer than 20, choose all)
+ids = [t['txn_external_id'] for t in txs]
+if not ids:
+    raise SystemExit("No transactions found")
+sample_ids = random.sample(ids, min(20, len(ids)))
+
+def time_linear_search(targets):
+    t0 = time.perf_counter()
+    for tid in targets:
+        found = None
+        for tx in txs:
+            if tx['txn_external_id'] == tid:
+                found = tx
+                break
+    return time.perf_counter() - t0
+
+def time_dict_lookup(targets):
+    t0 = time.perf_counter()
+    for tid in targets:
+        _ = tx_dict.get(tid)
+    return time.perf_counter() - t0
+
+if __name__ == "__main__":
+    lin = time_linear_search(sample_ids)
+    dct = time_dict_lookup(sample_ids)
+    print(f"Linear search time for {len(sample_ids)} lookups: {lin:.6f}s")
+    print(f"Dictionary lookup time for {len(sample_ids)} lookups: {dct:.6f}s")
+    print(f"Dict is {lin/dct if dct>0 else 'inf'}x faster (approx)")
+
