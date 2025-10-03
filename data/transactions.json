@@ -1,3 +1,4 @@
+HEAD
 // dsa/dsa_compare.py
 import json, time, random
 from pathlib import Path
@@ -39,3 +40,5 @@ if __name__ == "__main__":
     print(f"Linear search time for {len(sample_ids)} lookups: {lin:.6f}s")
     print(f"Dictionary lookup time for {len(sample_ids)} lookups: {dct:.6f}s")
     print(f"Dict is {lin/dct if dct>0 else 'inf'}x faster (approx)")
+[]
+ 3e1649c (data/transactions.json)
