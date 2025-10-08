@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 94aa2a7 (added files)
 \# MoMo Transactions API Documentation
 
 
@@ -28,6 +31,7 @@ Example (curl): -u admin:password123
 List all transactions.
 
 \*Request:\*
+<<<<<<< HEAD
 =======
 
 # MoMo SMS REST API
@@ -156,4 +160,6 @@ Endpoints are documented in `docs/api_docs.md`. Examples:
 
 
 >>>>>>> 9d2f6ecd9541c8289d667f10df470a66c9fd18c0
+=======
+>>>>>>> 94aa2a7 (added files)
 

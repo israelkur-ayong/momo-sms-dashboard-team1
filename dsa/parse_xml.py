@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 94aa2a7 (added files)
 # dsa/parse_xml.py
 import xml.etree.ElementTree as ET
 import re
@@ -17,6 +20,7 @@ OUT_JSON = PROJECT_ROOT / "data" / "transactions.json"
 OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
 
 # Regex patterns
+<<<<<<< HEAD
 =======
 import xml.etree.ElementTree as ET
 import re
@@ -28,11 +32,16 @@ OUT_JSON = Path("data/transactions.json")
 OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
 
 >>>>>>> 9d2f6ecd9541c8289d667f10df470a66c9fd18c0
+=======
+>>>>>>> 94aa2a7 (added files)
 txid_re = re.compile(r'(?:TxId:|Financial Transaction Id:)\s*([A-Za-z0-9\-]+)', re.I)
 amount_re = re.compile(r'([0-9,]+)\s*RWF', re.I)
 fee_re = re.compile(r'Fee was\s*([0-9,]+)\s*RWF', re.I)
 balance_re = re.compile(r'new balance[:\s]*([0-9,]+)\s*RWF', re.I)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 94aa2a7 (added files)
 to_name_re = re.compile(r'(?:to|from)\s+([A-Za-z\s]+)\s*(?:\(|[0-9])', re.I)
 
 def safe_float(val):
@@ -56,6 +65,7 @@ def parse_sms_elem(e):
     tx = {
         "txn_external_id": txid_m.group(1) if txid_m else None,
         "body": body.strip(),
+<<<<<<< HEAD
 =======
 
 def parse_sms_elem(e):
@@ -68,12 +78,17 @@ def parse_sms_elem(e):
         "txn_external_id": txid_m.group(1) if txid_m else f"LOCAL-{e.get('date')}",
         "body": body,
 >>>>>>> 9d2f6ecd9541c8289d667f10df470a66c9fd18c0
+=======
+>>>>>>> 94aa2a7 (added files)
         "provider": e.get('address'),
         "raw_date": e.get('date'),
         "date_sent": e.get('date_sent'),
         "readable_date": e.get('readable_date'),
         "contact_name": e.get('contact_name'),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 94aa2a7 (added files)
         "amount": safe_float(amount_m.group(1)) if amount_m else None,
         "fee": safe_float(fee_m.group(1)) if fee_m else 0.0,
         "balance_after": safe_float(balance_m.group(1)) if balance_m else None,
@@ -115,6 +130,7 @@ def write_json(txs, outpath=OUT_JSON):
 
 if __name__ == "__main__":
     txs = parse_xml()
+<<<<<<< HEAD
     write_json(txs)
 =======
         "amount": float(amount_m.group(1).replace(',', '')) if amount_m else None,
@@ -138,3 +154,6 @@ if __name__ == "__main__":
     txs = parse_xml()
     write_json(txs)
 >>>>>>> 9d2f6ecd9541c8289d667f10df470a66c9fd18c0
+=======
+    write_json(txs)
+>>>>>>> 94aa2a7 (added files)
