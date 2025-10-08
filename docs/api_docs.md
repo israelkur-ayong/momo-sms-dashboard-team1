@@ -1,165 +1,118 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 94aa2a7 (added files)
-\# MoMo Transactions API Documentation
-
-
-
-Base URL: http://127.0.0.1:8000
-
-
-
-\## Authentication
-
-All endpoints require HTTP Basic Authentication.
-
-Use header:
-
-Authorization: Basic BASE64(username:password)
-
-Example (curl): -u admin:password123
-
-
-
-\## Endpoints
-
-
-
-\### GET /transactions
-
-List all transactions.
-
-\*Request:\*
-<<<<<<< HEAD
-=======
-
-# MoMo SMS REST API
+# MoMo SMS REST API Documentation
 
 ## **Overview**
 
-This project provides a **REST API** for accessing and managing mobile money SMS transactions. The API is built in plain Python using the `http.server` module. Transactions are parsed from an XML dataset (`modified_sms_v2.xml`) and stored in JSON format for fast access. The API supports **CRUD operations** with **Basic Authentication**.
+This project provides a **REST API** for accessing and managing Mobile Money (MoMo) SMS transactions.  
+The API is built in **plain Python** using the `http.server` module. Transactions are parsed from an XML dataset (`modified_sms_v2.xml`) and stored in JSON format for fast access.  
+The API supports **CRUD operations** with **Basic Authentication** to secure access.
 
-
+---
 
 ## **Folder Structure**
 
-```
-momo-sms-dashboard-group1/
-├── api/                   # API server code
-│   └── server.py
-├── data/                  # Raw and processed data
-│   └── modified_sms_v2.xml
-│   └── transactions.json
-├── dsa/                   # DSA scripts
-│   ├── parse_xml.py
-│   └── dsa_compare.py
-├── docs/                  # API documentation
-│   └── api_docs.md
-├── screenshots/           # Evidence of endpoint testing
-├── README.md              # Project setup instructions
-└── requirements.txt       # Dependencies (optional)
-```
+momo-sms-dashboard-team1/
+├── api/ # API server code
+│ └── server.py
+├── data/ # Raw and processed data
+│ ├── modified_sms_v2.xml
+│ └── transactions.json
+├── dsa/ # DSA scripts
+│ ├── parse_xml.py
+│ └── dsa_compare.py
+├── docs/ # API documentation
+│ └── api_docs.md
+├── screenshots/ # Endpoint testing evidence
+├── README.md # Project setup instructions
+└── requirements.txt # Dependencies (optional)
 
-REST API BUILDING AND SECURING
+yaml
+Copy code
+
+---
 
 ## **Setup Instructions**
 
-### **1. Prerequisites**
+### 1. Prerequisites
 
-* Python 3.9+ installed
-* PowerShell / Command Prompt / Terminal
-* `modified_sms_v2.xml` should be in the `data/` folder
+- Python 3.9+ installed  
+- PowerShell / Command Prompt / Terminal  
+- `modified_sms_v2.xml` must be in the `data/` folder  
 
+---
 
+### 2. Install Dependencies
 
-### **2. Install Dependencies**
-
-No external dependencies are strictly required. Optional for advanced features:
+No mandatory dependencies required.  
+Optionally install `requests` for testing:
 
 ```bash
 pip install requests
-```
+3. Parse XML Data
+Convert the XML dataset into a JSON file before running the API:
 
-
-
-### **3. Parse XML Data**
-
-Convert the XML dataset into a JSON file for the API:
-
-```bash
+bash
+Copy code
 python dsa/parse_xml.py
-```
+Output:
+data/transactions.json
 
-* Output: `data/transactions.json`
-* Ensure `transactions.json` is created before running the API.
+Make sure this file exists before starting the API.
 
-
-### **4. Run the API**
-
+4. Run the API
 Start the server:
 
-```bash
+bash
+Copy code
 python api/server.py
-```
+Default configuration:
 
-* Default host: `127.0.0.1`
-* Default port: `8000`
+Host: 127.0.0.1
 
+Port: 8000
 
+Authentication
+All endpoints require HTTP Basic Authentication.
+Use the following header format:
 
-### **5. Authentication**
+pgsql
+Copy code
+Authorization: Basic BASE64(username:password)
+Example credentials:
 
-* Basic Auth required for all endpoints
-* Example credentials:
+Username: admin
 
-  * **Username:** admin
-  * **Password:** admin123
+Password: admin123
 
-**PowerShell Example:**
+PowerShell Example:
 
-```powershell
+powershell
+Copy code
 $pair = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("admin:admin123"))
 Invoke-WebRequest -Uri http://127.0.0.1:8000/transactions -Headers @{Authorization = "Basic $pair"}
-```
+Endpoints
+Endpoint	Method	Description
+/transactions	GET	List all transactions
+/transactions/{id}	GET	Retrieve one transaction
+/transactions	POST	Add a new transaction
+/transactions/{id}	PUT	Update an existing one
+/transactions/{id}	DELETE	Delete a transaction
 
+Example (curl):
+bash
+Copy code
+curl -u admin:admin123 http://127.0.0.1:8000/transactions
+Data Structures & Algorithms (DSA)
+The dsa/dsa_compare.py script compares Linear Search vs Dictionary Lookup.
 
+Demonstrates efficiency using at least 20 sample transactions.
 
-### **6. Test Endpoints**
+Deliverables
+api/ → API code
 
-Endpoints are documented in `docs/api_docs.md`. Examples:
+dsa/ → XML parser & DSA scripts
 
-| Endpoint             | Method | Description              |
-| -------------------- | ------ | ------------------------ |
-| `/transactions`      | GET    | List all transactions    |
-| `/transactions/{id}` | GET    | Retrieve one transaction |
-| `/transactions`      | POST   | Add a new transaction    |
-| `/transactions/{id}` | PUT    | Update a transaction     |
-| `/transactions/{id}` | DELETE | Delete a transaction     |
+docs/api_docs.md → This documentation
 
-* Test using **PowerShell**, **curl**, or **Postman**
-* Save screenshots in `screenshots/` folder
+screenshots/ → Endpoint testing results
 
-
-
-### **7. Data Structures & Algorithms**
-
-* `dsa/dsa_compare.py` compares **Linear Search vs Dictionary Lookup**
-* Demonstrates efficiency for at least 20 sample transactions
-
-
-
-### **8. Deliverables**
-
-* `api/` → API code
-* `dsa/` → XML parser & DSA code
-* `docs/api_docs.md` → Endpoint documentation
-* `screenshots/` → Evidence of tests
-* `README.md` → Setup instructions
-
-
-
->>>>>>> 9d2f6ecd9541c8289d667f10df470a66c9fd18c0
-=======
->>>>>>> 94aa2a7 (added files)
-
+README.md → Setup instructions
